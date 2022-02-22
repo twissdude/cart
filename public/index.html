@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Cleaning Services</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_OYtNS0xLYXbDPgtDZY7ml");
+})();
+</script>
+    <script src="./mail.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+        <div class="navbar navbar-expand-sm sticky-top navbar-primary lg-primary">
+          <div class="logo">
+            <button id="mybut"><a href="https://swiftcleaningng.com/">Home</a></button>
+            </div>
+            <div class="cart" onclick="cart()" data-toggle="modal" data-target=".bd-example-modal-lg">
+              <span id="cart-counter" class="badge badge-danger" style="visibility:hidden">0</span>
+                <img id="cart-image" src="./icons/cart.png" height="40px">
+                <p style="width: 50px;display: inline-block;line-height: 44px;font-size: 20px; margin: 0;">QUOTE
+                </p>
+              </div>
+            </div>
+            <div id="footDiv">
+            <font color="black">
+            <marquee direction="left"bgcolor="">
+            <p>Explore.Nurture.Inspire.Quality is our Service.</p>
+            </marquee>
+            </font>
+            </div>
+      </div>
+      <div class="bodyContainer">   
+        <div id="items">
+            
+        </div>  
+      </div>
+       
+          
+        <div class="modal fade bd-example-modal-lg" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">My Quote</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div id="modal-body" class="modal-body">
+                  
+                </div>
+                <div class="modal-footer">            
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Back To Quote</button>
+                  <button type="button" class="btn btn-primary" id="modal-payment" data-dismiss="modal" 
+                  onclick="makeInvoice()" data-toggle="modal" data-target="#invoice-modal">Send Quote</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        <div class="modal fade bd-example-modal-lg" id="invoice-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="order-id"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="modal-body4" class="modal-body4">
+                <h1 style="text-align: center;font-size: 25px;" class="bg-primary text-white">Preferences</h1>
+                <div class="pref">
+                            <form id="taju">
+      
+                              <label>
+                                <div class="phone"><b>Enter Your Name and Phone Number</b><br></div><br>
+                                <div class="info">
+                                <input type="text" id="fname" name="Name" placeholder="Enter Your Name" required>
+                                <input type="number" id="lname" name="Number" placeholder="Enter Your Number"><br><br>
+                                <div class="press">   
+                                <button type="button" onclick="getInputValue();">Enter</button>
+                              </div>
+                            </div>
+                              </label> 
+
+
+                              <label>
+                              <b>Do you want your clothes starched?</b><br><br>
+                                <input type="radio" id="prefer" name="Starched" value="Yes" required> Yes<br>
+                                <input type="radio" id="prefer" name="Starched" value="No"> No<br><br>
+                              </label>
+                            
+                                 
+                              <label>
+                                <b>Is there any "delicate" material among your laundry?</b><br><br>
+                                <input type="radio" id="prefer" name="Delicate" value="Yes" required> Yes<br>
+                                <input type="radio" id="prefer" name="Delicate" value="No"> No<br><br> 
+                               </label>
+                              
+                                
+                                
+                               <label>
+                                <b>Method of Collection (Before Service)?</b><br><br>
+                                <input type="radio" id="prefer" name="Collection (Before Service)" value="Home Pickup" required> Home Pickup<br>
+                                <input type="radio" id="prefer" name="Collection (Before Service)" value="Office Delivery"> Office Delivery<br><br>
+                              </label> 
+          
+          
+                                <label>
+                                  <b>Method of Collection (After Service)?</b><br><br>
+                                  <input type="radio" id="prefer" name="Collection (After Service)" value="Home Delivery" required> Home Delivery<br>
+                                  <input type="radio" id="prefer" name="Collection (After Service)" value="Office Pickup"> Office Pickup<br><br>
+                                </label> 
+          
+            
+                                
+                              </form>
+                              <div class="radbut">
+                                  <button onclick="displayRadioValue()">ADD TO QUOTE</button>
+                                </div>
+          
+              </div>
+      
+                                                        
+                
+              </div>
+              <h1 style="text-align: center;font-size: 25px;" class="bg-primary text-white">Invoice</h1> 
+              <div id="show-up">  
+              <div id="myName">
+
+              </div>
+              <div id="result">
+                <br>
+              </div>
+              <div class="inputQuote">Total Amount :  ₦<span id="final_invoice_price"></span></div> 
+            </div>
+              <h1 style="text-align: center;font-size: 25px;" class="bg-primary text-white">Order Details</h1> 
+              <div id="show-invoice"> 
+              
+              <div id="modal-invoice" class="modal-invoice">
+                  
+              </div>
+            </div>
+              <div class="modal-footer">            
+                <button class="place-order btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#order-confirm-modal" onclick="placedOrder()">Place Your order</button>
+              </div>
+            <!---  <button class="mySubmit btn btn-primary" onclick="sendEmail()">Send</button>-->
+            </div>
+          </div>
+        </div>
+
+
+          <!-- order successfully placed -->
+          <!-- icon color #1AE841 -->
+          <div class="modal fade bd-example-modal-lg" id="order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="check-body" id="check-body">
+                  <img src="./icons/check.png" class="check-order">
+                  <h3>Thank You</h3>
+                  <h4>Order Successfully Placed</h4>
+
+                 <!-- <h6 style="margin-top: 20px;">Payment Method</h6>
+                  <h6>CASH ON DELIVERY</h6>-->
+              </div>
+              <div class="alert alert-danger" id="exceed">Please Be Safe. Swift Cleaning Services Cares
+              </div>
+            </div>
+          </div>
+
+</body>
+</html>
